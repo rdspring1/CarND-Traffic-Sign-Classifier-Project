@@ -19,11 +19,11 @@ The goals / steps of this project are the following:
 [distribution]: ./report_images/distribution.png "Distribution"
 [precision_recall]: ./report_images/precision_recall.png "Precision_Recall"
 [state1]: ./report_images/nn_state.png "Neural Network State"
-[image1]: ./test_images/german1.png "Traffic Sign 1"
-[image2]: ./test_images/german2.png "Traffic Sign 2"
-[image3]: ./test_images/german3.png "Traffic Sign 3"
-[image4]: ./test_images/german4.png "Traffic Sign 4"
-[image5]: ./test_images/german5.png "Traffic Sign 5"
+[image1]: ./test_images_hard/german1.png "Traffic Sign 1"
+[image2]: ./test_images_hard/german2.png "Traffic Sign 2"
+[image3]: ./test_images_hard/german3.png "Traffic Sign 3"
+[image4]: ./test_images_hard/german4.png "Traffic Sign 4"
+[image5]: ./test_images_hard/german5.png "Traffic Sign 5"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/481/view) 
 
