@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [visualization]: ./report_images/visualization.png "Visualization"
 [distribution]: ./report_images/distribution.png "Distribution"
 [precision_recall]: ./report_images/precision_recall.png "Precision_Recall"
-[state1]: ./report_images/nn.png "Neural Network State"
+[state1]: ./report_images/nn_state.png "Neural Network State"
 [image1]: ./test_images/german1.png "Traffic Sign 1"
 [image2]: ./test_images/german2.png "Traffic Sign 2"
 [image3]: ./test_images/german3.png "Traffic Sign 3"
@@ -105,19 +105,21 @@ My model consisted of the following layers:
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the cells 7 and 10 of the ipython notebook. 
-Optimizer: Adam
-Default Learning Rate: 1e-3
-Batch size: 32
-Number of epochs: 100
+*Optimizer: Adam
+*Default Learning Rate: 1e-3
+*Batch size: 32
+*Number of epochs: 100
 
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the eighth cell of the Ipython notebook.
 
 * What architecture was chosen?
+
 My architecture is a derivative of the VGG-16 architecture used for the ImageNet dataset. I would add a dropout layer to the fully-connected layer of the network and an l2 weight decay to reduce over-fitting of the model. However, it was not necessary to reach the 93% accuracy threshold for the assignment.
 
 * Why did you believe it would be relevant to the traffic sign application?
+
 This architecture is commonly used for the Street View House Numbers (SVHN), CIFAR-10, and CIFAR-100 datasets. The German Traffic Sign dataset contains (32x32x3) RGB images and between 10-100 classes. Therefore, it is similar to those common datasets.
 
 My final model results were:
@@ -126,6 +128,7 @@ My final model results were:
 * test set accuracy of 0.96
 
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+
 The training accuracy is 99.9%, so the model was trained for a sufficient amount of epochs. The gap between the training and testing accuracy is about 3-4%. Adding regularization such as dropout or weight decay would improve the gap between  
  
 ![alt text][precision_recall]
