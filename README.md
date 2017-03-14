@@ -18,7 +18,8 @@ The goals / steps of this project are the following:
 [visualization]: ./report_images/visualization.png "Visualization"
 [distribution]: ./report_images/distribution.png "Distribution"
 [precision_recall]: ./report_images/precision_recall.png "Precision_Recall"
-[state1]: ./report_images/nn_state.png "Neural Network State"
+[state]: ./report_images/nn_state.png "Neural Network State - Yield Sign"
+[state1]: ./report_images/nn_state1.png "Neural Network State - Speed Limit Sign"
 [image1]: ./test_images_hard/german1.png "Traffic Sign 1"
 [image2]: ./test_images_hard/german2.png "Traffic Sign 2"
 [image3]: ./test_images_hard/german3.png "Traffic Sign 3"
@@ -81,7 +82,7 @@ Since the performance of my network was satisfactory, I did not augment the trai
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-The code for my final model is located in the fifth cell of the ipython notebook. 
+The code for my final model is located in the sixth cell of the ipython notebook. 
 
 My model consisted of the following layers:
 
@@ -124,16 +125,16 @@ This architecture is commonly used for the Street View House Numbers (SVHN), CIF
 
 My final model results were:
 * training set accuracy of 0.999
-* validation set accuracy of 0.970
+* validation set accuracy of 0.969
 * test set accuracy of 0.96
 
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 
-The training accuracy is 99.9%, so the model was trained for a sufficient amount of epochs. The gap between the training and testing accuracy is about 3-4%. Adding regularization such as dropout or weight decay would improve the gap between  
+The training accuracy is 99.9%, so the model was trained for a sufficient amount of epochs. The gap between the training and testing accuracy is about 3-4%. Adding regularization such as Dropout or Weight Decay would improve the gap. 
  
 ![alt text][precision_recall]
 
-I plot the precision and recall for each class in the test dataset. It measures how well my network generalizes and how I should augment my training dataset. Overall, my model achieves excellent precision and recall. However, certain classes report worse results. I suspect that augmenting those classes in the training dataset would improve my model's performance.
+I plot the precision and recall for each class in the test dataset. It measures how well my network generalizes and how I should augment my training dataset. Overall, my model achieves excellent precision and recall. However, certain classes report poor results. I suspect that augmenting those classes in the training dataset would improve my model's performance. The classes with poor precision or recall correspond with fewer training examples for those classes.
  
 ###Test a Model on New Images
 
@@ -143,10 +144,10 @@ Here are five German traffic signs that I found on the web:
 
 ![alt text][image1] ![alt text][image2] ![alt text][image3] ![alt text][image4] ![alt text][image5]
 
-1. General Caution - It is a pixelated, electronic sign with a text label.
-2. Speed Limit (40km/h) - The sign is similar to the other speed limit signs, but the speed limit sign for 40km/h is not in the dataset.
-3. Priority Road - Portion of the sign is distorted by a shadow.
-4. No Entry - The sign is turned toward an oblique angle.
+1. Roundabout Mandatory - An easy example
+2. No Entry - The sign is turned toward an oblique angle.
+3. Yield - This sign was taken from a street cone. It is one side of a pyramid.
+4. Speed Limit (120km/h) - An easy example turn slightly.
 5. Turn left Ahead - There are multiple signs in the image.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
@@ -157,11 +158,11 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| General Caution     	| Stop sign   									| 
-| Speed Limit (40km/h)  | U-turn 										|
-| Priority	Road		| Yield											|
-| No Entry	      		| Bumpy Road					 				|
-| Turn Left Ahead		| Slippery Road      							|
+| Roundabout Mandatory  | Roundabout Mandatory   						| 
+| No Entry  			| No Entry										|
+| Yield					| Yield											|
+| Speed Limit (120km/h)	| Speed Limit (120km/h)					 		|
+| Turn Left Ahead		| Speed Limit (80km/h)      					|
 
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%.
@@ -174,15 +175,24 @@ The top five softmax probabilities were always 1.0, so the model is very certain
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1.0        			| Stop sign   									| 
-| 1.0     				| U-turn 										|
+| 1.0        			| Roundabout Mandatory   						| 
+| 1.0     				| No Entry 										|
 | 1.0					| Yield											|
-| 1.0	      			| Bumpy Road					 				|
-| 1.0				    | Slippery Road      							|
+| 1.0	      			| Speed Limit (120km/h)					 		|
+| 1.0				    | Speed Limit (80km/h)      					|
 
 
 #### Visualize the Neural Network's State with Test Images
-####1. Discuss how you used the visual output of your trained network's feature map to show that it hasd learned to look for interesting characteristics in traffic sign images
+####1. Discuss how you used the visual output of your trained network's feature map to show that it has learned to look for interesting characteristics in traffic sign images
 
 The code for visualizing the state of my neural network is located in the thirteenth cell of the Ipython notebook.
+I visualised the feature activation from the 2nd convolutional layer of the network.
+
+For the first image. I used the third test image - Yield Sign.
+The primary features are the triangle outline of the sign and the exclamation point in the center.
+
+In the second image, I showed the 120km/hr speed limit sign.
+The feature activation highlights the number in the center and the circle's outline.
+
+![alt text][state]
 ![alt text][state1]
