@@ -106,10 +106,10 @@ My model consisted of the following layers:
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the cells 7 and 10 of the ipython notebook. 
-*Optimizer: Adam
-*Default Learning Rate: 1e-3
-*Batch size: 32
-*Number of epochs: 100
+* Optimizer: Adam
+* Default Learning Rate: 1e-3
+* Batch size: 32
+* Number of epochs: 100
 
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -123,15 +123,16 @@ My architecture is a derivative of the VGG-16 architecture used for the ImageNet
 
 This architecture is commonly used for the Street View House Numbers (SVHN), CIFAR-10, and CIFAR-100 datasets. The German Traffic Sign dataset contains (32x32x3) RGB images and between 10-100 classes. Therefore, it is similar to those common datasets.
 
-My final model results were:
-* training set accuracy of 0.999
-* validation set accuracy of 0.969
-* test set accuracy of 0.96
-
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 
 The training accuracy is 99.9%, so the model was trained for a sufficient amount of epochs. The gap between the training and testing accuracy is about 3-4%. Adding regularization such as Dropout or Weight Decay would improve the gap. 
+
+My final model results were:
+* training set accuracy of 0.999
+* validation set accuracy of 0.969
+* test set accuracy of 0.960
  
+#### Precision and Recall 
 ![alt text][precision_recall]
 
 I plot the precision and recall for each class in the test dataset. It measures how well my network generalizes and how I should augment my training dataset. Overall, my model achieves excellent precision and recall. However, certain classes report poor results. I suspect that augmenting those classes in the training dataset would improve my model's performance. The classes with poor precision or recall correspond with fewer training examples for those classes.
@@ -147,7 +148,7 @@ Here are five German traffic signs that I found on the web:
 1. Roundabout Mandatory - An easy example
 2. No Entry - The sign is turned toward an oblique angle.
 3. Yield - This sign was taken from a street cone. It is one side of a pyramid.
-4. Speed Limit (120km/h) - An easy example turn slightly.
+4. Speed Limit (120km/h) - A simple example turned slightly.
 5. Turn left Ahead - There are multiple signs in the image.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
@@ -186,13 +187,13 @@ The top five softmax probabilities were always 1.0, so the model is very certain
 ####1. Discuss how you used the visual output of your trained network's feature map to show that it has learned to look for interesting characteristics in traffic sign images
 
 The code for visualizing the state of my neural network is located in the thirteenth cell of the Ipython notebook.
-I visualised the feature activation from the 2nd convolutional layer of the network.
+I visualised the feature activations from the 2nd convolutional layer of the network.
 
 For the first image. I used the third test image - Yield Sign.
-The primary features are the triangle outline of the sign and the exclamation point in the center.
+The primary features are the triangle outline of the sign and the exclamation point in the center. [See FeatureMaps 11 + 14]
 
 In the second image, I showed the 120km/hr speed limit sign.
-The feature activation highlights the number in the center and the circle's outline.
+The feature activation highlights the number in the center and the circle's outline. [See FeatureMap 8]
 
 ![alt text][state]
 ![alt text][state1]
