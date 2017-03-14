@@ -111,6 +111,10 @@ The code for training the model is located in the cells 7 and 10 of the ipython 
 * Batch size: 32
 * Number of epochs: 100
 
+The Adam optimizer is standard choice for deep learning applications that reduces the randomness of stochastic gradient descent and improves model convergence. Larger batch sizes converge to sharp minima, so I selected a small batch size as recommend by the paper below. 
+
+[On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima](https://arxiv.org/abs/1609.04836)
+
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the eighth cell of the Ipython notebook.
@@ -166,7 +170,9 @@ Here are the results of the prediction:
 | Turn Left Ahead		| Speed Limit (80km/h)      					|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%.
+The model was able to correctly guess 4 of the 5 traffic signs, which gives it an accuracy of 80%. The accuracy on the captured images is 80% while it was 96% on the testing set.
+
+The model misclassified the Turn Left Ahead sign, so it seems the model could use some regularization techniques to avoid over-fitting. I thought the sign was relatively easy to classfiy because the sign is clearly visible. However, since the sign contains multiple signs, the main sign is vertically shifted upward. I believe adding extra examples for this class by translating and rotating the images would improve the model's ability to generalize to real-world examples. 
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
